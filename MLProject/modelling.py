@@ -38,14 +38,14 @@ def train_basic_model(X_train, y_train, X_test, y_test):
     Kriteria Basic: Melatih model dengan MLflow Autolog (Mode Turbo).
     """
 
-    mlflow.set_tracking_uri("") 
+    # mlflow.set_tracking_uri("") 
     
     mlflow.autolog()
     
     print("[PROCESS] Melatih Model Random Forest (Basic)...")
     print("          (Mohon tunggu, sedang menggunakan seluruh core CPU...)")
     
-    mlflow.set_experiment("Hotel_Booking_Basic_Kresna")
+    # mlflow.set_experiment("Hotel_Booking_Basic_Kresna")
     
     with mlflow.start_run():
         # n_jobs=-1 : Pakai semua core CPU
