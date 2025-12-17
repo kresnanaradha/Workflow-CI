@@ -21,4 +21,12 @@ jobs:
     - name: Run MLflow Project
       run: |
         cd MLProject
+        # Menjalankan training dan menyimpan hasil di folder mlruns
         mlflow run . --env-manager=local
+
+    # upload folder 'mlruns' agar bisa didownload
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: experiment-results
+        path: MLProject/mlruns
