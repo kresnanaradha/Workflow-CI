@@ -1,0 +1,24 @@
+name: Training Pipeline
+
+on: [push]
+
+jobs:
+  build-and-train:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install Dependencies
+      run: |
+        pip install mlflow pandas numpy scikit-learn matplotlib seaborn
+
+    - name: Run MLflow Project
+      run: |
+        cd MLProject
+        mlflow run . --no-conda
