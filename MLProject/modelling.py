@@ -47,9 +47,9 @@ def train_basic_model(X_train, y_train, X_test, y_test):
     
     # mlflow.set_experiment("Hotel_Booking_Basic_Kresna")
     
-    with mlflow.start_run():
-        # n_jobs=-1 : Pakai semua core CPU
-        # verbose=1 : Tampilkan progress bar
+    with mlflow.start_run() as run:
+        with open("run_id.txt", "w") as f:
+            f.write(run.info.run_id)
         model = RandomForestClassifier(n_estimators=50, random_state=42, n_jobs=-1, verbose=1)
         
         # Training
